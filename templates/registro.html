@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Registrar nueva escuela
+{% endblock%}
+{% block body %}
+{% include "sweetalerts.html" %}
+<div class="form-regis">
+    <form class="row g-3" action="/registrar" method="post">
+        <div class="col-md-4">
+          <label for="inputEmail4" class="form-label">CCT</label>
+          <input type="text" class="form-control" id="inputCCT" name="cctN" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Nombre de escuela</label>
+          <input type="text" class="form-control" id="inputEscuela" name="nombreN" required>
+        </div>
+        <div class="col-md-5">
+          <label for="inputAddress" class="form-label">Localidad</label>
+          <input type="text" class="form-control" id="inputLoc" name="locN" required> 
+        </div>
+        <div class="col-md-5">
+            <label for="inputAddress2" class="form-label">Municipio</label>
+            <input type="text" class="form-control" id="inputMun" name="munN" required>
+          </div>  
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Director</label>
+          <input type="text" class="form-control" id="inputDir" name="dirN">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Región</label>
+          <select id="inputState" class="form-select" name="region">
+            <option selected>-Región-</option>
+            <option>Acapulco</option>
+            <option>Centro</option>
+            <option>Costa Grande</option>
+            <option>Costa Chica</option>
+            <option>Montaña</option>
+            <option>Norte</option>
+            <option>Tierra Caliente</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+            <label for="inputZip" class="form-label">C.P.</label>
+            <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Entrega documentación
+            </label>
+        
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary"  id="registrarB">Registrar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

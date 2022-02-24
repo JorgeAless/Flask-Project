@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block title %}
+  Escuelas registradas
+{% endblock %}
+{% block body %}
+<style>
+      #tb-escuela td, #tb-escuela th {
+        border: 1px solid #ddd;
+        padding-left: 8px;
+      }
+
+      #tb-escuela tr:nth-child(even){background-color: #f2f2f2;}
+
+      #tb-escuela tr:hover {background-color: #ddd;}
+
+      #tb-escuela th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #04AA6D;
+        color: white;
+      }
+      #tb-escuela a{
+          text-align: center;
+      }
+
+</style>
+<body>
+  {% include "sweetalerts.html" %}
+    <form action="/search" method="post">
+      <div class="container-1">
+        <input type="search" placeholder="Clave CCT" name="cct">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </div>
+      <div>
+        <h1>Escuelas registradas {{escuelas|length}}</h1>
+      </div>
+    </form>
+    
+    <!--Tabla de escuelas-->
+        
+        <table  id="tb-escuela">
+            <thead>
+                <tr>
+                    <th scope="col">CCT</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Municipio</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col">Acciones</th>
+                </tr>         
+            </thead>
+            <tbody>
+                {% for dato in escuelas %}
+                    <tr>
+                        <td> {{dato.1}} </td>
+                        <td> {{dato.2}} </td>
+                        <td> {{dato.3}} </td>
+                        <td> {{dato.4}} </td>
+                        <td>
+                            <a href="/edit/{{dato.0}}" class="btn-edit"><i class="fa-solid fa-pen"></i></a>
+                            <a href="/delete/{{dato.0}}" class="btn-print"><i class="fa-solid fa-trash"></i></i></a> 
+                                                    
+                        </td>               
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+</body>
+ 
+{% endblock %}

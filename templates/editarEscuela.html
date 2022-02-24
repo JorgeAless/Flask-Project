@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Editar Escuela
+{% endblock %}
+{% block body %}
+<form action="/update/{{escuela.0}}" method="POST" class="row g-3">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">CCT</label>
+        <input type="text" class="form-control" name="cct" value="{{escuela.1}}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Nombre de escuela</label>
+        <input type="text" class="form-control" name="nombre" value="{{escuela.2}}">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Localidad</label>
+        <input type="text" class="form-control" name="localidad" placeholder="Localidad" value="{{escuela.3}}">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Municipio</label>
+        <input type="text" class="form-control" name="municipio" placeholder="Municipio" value="{{escuela.4}}">
+      </div>
+     
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+</form>
+
+{% endblock %}
